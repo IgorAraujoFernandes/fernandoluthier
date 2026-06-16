@@ -9,5 +9,5 @@ export default defineConfig({
     target: "es2020",
     outDir: "dist",
   },
-  base:"/fernando-luthier"
+  base:"/igoraraujofernandes.github.io/"
 });
