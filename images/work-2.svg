@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Trabalho de luthieria">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a1c16"/>
+      <stop offset="1" stop-color="#6e2f22"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#g2)"/>
+  <g stroke="#f3dcb0" stroke-opacity="0.10" fill="none" stroke-width="2">
+    <path d="M0 150 C160 130 440 180 600 150"/>
+    <path d="M0 230 C160 210 440 260 600 230"/>
+    <path d="M0 380 C160 360 440 410 600 380"/>
+    <path d="M0 460 C160 440 440 490 600 460"/>
+  </g>
+  <!-- braço com trastes (horizontal) -->
+  <rect x="90" y="250" width="420" height="100" rx="12" fill="#8a572b" stroke="#f3dcb0" stroke-opacity="0.2" stroke-width="3"/>
+  <g stroke="#e8d6b4" stroke-opacity="0.85" stroke-width="3">
+    <line x1="150" y1="250" x2="150" y2="350"/>
+    <line x1="210" y1="250" x2="210" y2="350"/>
+    <line x1="270" y1="250" x2="270" y2="350"/>
+    <line x1="330" y1="250" x2="330" y2="350"/>
+    <line x1="390" y1="250" x2="390" y2="350"/>
+    <line x1="450" y1="250" x2="450" y2="350"/>
+  </g>
+  <g fill="#241910">
+    <circle cx="240" cy="300" r="5"/>
+    <circle cx="360" cy="300" r="5"/>
+  </g>
+</svg>
