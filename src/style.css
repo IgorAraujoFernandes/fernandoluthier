@@ -1,0 +1,150 @@
+/* ============================================================
+   Fer Luthier — estilos globais
+   Tailwind CSS v4 + DaisyUI v5 (carregados via @import / @plugin)
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* DaisyUI como plugin do Tailwind v4.
+   Desligamos os temas embutidos para usar apenas o nosso. */
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
+}
+
+/* Tema "luthier": paleta quente de madeira, âmbar e creme.
+   Inspirado na identidade original (marrom #695843) porém modernizado. */
+@plugin "daisyui/theme" {
+  name: "luthier";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+
+  --color-base-100: oklch(20% 0.012 65);
+  --color-base-200: oklch(24% 0.015 65);
+  --color-base-300: oklch(29% 0.017 65);
+  --color-base-content: oklch(92% 0.02 85);
+
+  --color-primary: oklch(74% 0.12 72);
+  --color-primary-content: oklch(20% 0.03 72);
+
+  --color-secondary: oklch(55% 0.06 55);
+  --color-secondary-content: oklch(96% 0.01 85);
+
+  --color-accent: oklch(67% 0.13 48);
+  --color-accent-content: oklch(18% 0.02 48);
+
+  --color-neutral: oklch(26% 0.012 65);
+  --color-neutral-content: oklch(92% 0.02 85);
+
+  --color-info: oklch(70% 0.10 230);
+  --color-info-content: oklch(18% 0.02 230);
+  --color-success: oklch(70% 0.13 150);
+  --color-success-content: oklch(18% 0.02 150);
+  --color-warning: oklch(80% 0.13 80);
+  --color-warning-content: oklch(20% 0.02 80);
+  --color-error: oklch(64% 0.18 25);
+  --color-error-content: oklch(98% 0.01 25);
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Tokens de tipografia do Tailwind (utilitários font-sans / font-serif). */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* compensa o header fixo ao navegar por âncoras */
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+/* Textura sutil de "grão de madeira" para fundos de seção. */
+.wood-grain {
+  background-image:
+    radial-gradient(circle at 50% -20%, color-mix(in oklch, var(--color-primary) 12%, transparent), transparent 60%),
+    repeating-linear-gradient(
+      115deg,
+      color-mix(in oklch, var(--color-base-300) 50%, transparent) 0px,
+      color-mix(in oklch, var(--color-base-300) 50%, transparent) 2px,
+      transparent 2px,
+      transparent 9px
+    );
+}
+
+/* ---------- Animação de revelação ao rolar (IntersectionObserver) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Header: fundo aparece ao rolar ---------- */
+.site-header {
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+.site-header.scrolled {
+  background-color: color-mix(in oklch, var(--color-base-100) 80%, transparent);
+  backdrop-filter: blur(10px);
+  border-color: color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+/* ---------- Carrossel de depoimentos ---------- */
+.testimonial-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.testimonial-slide {
+  flex: 0 0 100%;
+}
+
+/* ---------- Galeria / Lightbox ---------- */
+.gallery-item {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+}
+
+dialog.lightbox::backdrop {
+  background: color-mix(in oklch, var(--color-base-100) 85%, black);
+  backdrop-filter: blur(6px);
+}
+
+/* Link de navegação ativo */
+.nav-link.active {
+  color: var(--color-primary);
+}
