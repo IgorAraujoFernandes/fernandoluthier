@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Oficina de luthieria">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1f16"/>
+      <stop offset="1" stop-color="#5a3d24"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="60%">
+      <stop offset="0" stop-color="#e8b56a" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e8b56a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c98a45"/>
+      <stop offset="1" stop-color="#8a572b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <rect width="600" height="600" fill="url(#glow)"/>
+
+  <!-- grão de madeira -->
+  <g stroke="#f3dcb0" stroke-opacity="0.10" fill="none" stroke-width="2">
+    <path d="M0 120 C160 100 440 150 600 120"/>
+    <path d="M0 180 C160 160 440 210 600 180"/>
+    <path d="M0 470 C160 450 440 500 600 470"/>
+    <path d="M0 520 C160 500 440 550 600 520"/>
+  </g>
+
+  <!-- corpo do violão estilizado -->
+  <g transform="translate(300 320)">
+    <path transform="translate(-130 -250)"
+      d="M130 60c30 0 52 22 52 54 0 24-14 40-30 54 26 22 42 50 42 86 0 52-42 86-94 86s-94-34-94-86c0-36 16-64 42-86-16-14-30-30-30-54 0-32 22-54 52-54z"
+      fill="url(#wood)" stroke="#f3dcb0" stroke-opacity="0.25" stroke-width="3"/>
+    <!-- boca -->
+    <circle cx="0" cy="70" r="46" fill="#241910"/>
+    <circle cx="0" cy="70" r="46" fill="none" stroke="#e8b56a" stroke-opacity="0.5" stroke-width="3"/>
+    <circle cx="0" cy="70" r="32" fill="none" stroke="#e8b56a" stroke-opacity="0.25" stroke-width="2"/>
+    <!-- cordas -->
+    <g stroke="#f3dcb0" stroke-opacity="0.55" stroke-width="1.6">
+      <line x1="-18" y1="-150" x2="-18" y2="170"/>
+      <line x1="-11" y1="-150" x2="-11" y2="170"/>
+      <line x1="-4" y1="-150" x2="-4" y2="170"/>
+      <line x1="4" y1="-150" x2="4" y2="170"/>
+      <line x1="11" y1="-150" x2="11" y2="170"/>
+      <line x1="18" y1="-150" x2="18" y2="170"/>
+    </g>
+    <!-- cavalete -->
+    <rect x="-40" y="150" width="80" height="14" rx="4" fill="#241910" stroke="#e8b56a" stroke-opacity="0.4" stroke-width="2"/>
+  </g>
+</svg>
