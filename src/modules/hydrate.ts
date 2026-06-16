@@ -1,5 +1,6 @@
 import { icon, type IconName } from "../data/icons.ts";
 import { whatsappLink, site } from "../data/site.ts";
+import { asset } from "../asset.ts";
 
 /**
  * Substitui todos os marcadores <span data-icon="nome"> pelo SVG correspondente.
@@ -13,7 +14,7 @@ export function hydrateIcons(root: ParentNode = document): void {
     const size = el.className.match(/\bw-\d+\b/) ? el.className : "w-6 h-6";
     // O WhatsApp usa a logo oficial (imagem real) em vez de ícone SVG.
     if (name === "whatsapp") {
-      el.innerHTML = `<img src="/images/whatsapp.png" alt="WhatsApp" class="${size} object-contain" />`;
+      el.innerHTML = `<img src="${asset("/images/whatsapp.png")}" alt="WhatsApp" class="${size} object-contain" />`;
       return;
     }
     el.innerHTML = icon(name, size);

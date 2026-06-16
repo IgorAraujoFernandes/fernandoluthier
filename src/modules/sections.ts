@@ -2,6 +2,7 @@ import { services } from "../data/services.ts";
 import { testimonials } from "../data/testimonials.ts";
 import { partners, gallery } from "../data/portfolio.ts";
 import { icon, type IconName } from "../data/icons.ts";
+import { asset } from "../asset.ts";
 
 /** Escapa texto para inserção segura como conteúdo HTML (evita XSS/quebra). */
 function esc(value: string): string {
@@ -51,7 +52,7 @@ export function renderGallery(): void {
         data-gallery-index="${index}"
         aria-label="Ampliar: ${esc(item.caption)}"
       >
-        <img src="${esc(item.src)}" alt="${esc(item.caption)}" loading="lazy" class="w-full h-full object-cover transition group-hover:scale-105" />
+        <img src="${esc(asset(item.src))}" alt="${esc(item.caption)}" loading="lazy" class="w-full h-full object-cover transition group-hover:scale-105" />
         <span class="absolute inset-x-0 bottom-0 p-3 text-left text-xs font-medium text-white bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition">
           ${esc(item.caption)}
         </span>

@@ -1,4 +1,5 @@
 import { gallery } from "../data/portfolio.ts";
+import { asset } from "../asset.ts";
 
 /**
  * Lightbox da galeria: abre num <dialog>, com navegação por setas,
@@ -17,7 +18,7 @@ export function initLightbox(): void {
     current = (index + gallery.length) % gallery.length;
     const item = gallery[current];
     if (!item) return;
-    img.src = item.src;
+    img.src = asset(item.src);
     img.alt = item.caption;
     caption.textContent = item.caption;
   };
